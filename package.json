@@ -1,0 +1,16 @@
+{
+  "name": "端口扫描",
+  "name_en": "PortScan",
+  "main": "main.js",
+  "icon": "eye",
+  "description": "通过 webshell 扫描内网主机已开放端口",
+  "description_en": "Scan ports with webshell",
+  "author": {
+    "name": "Medici.Yan",
+    "email": "Medici.Yan@gmail.com"
+  },
+  "category": "信息收集",
+  "category_en": "information",
+  "multiple": true,
+  "scripts": ["php", "asp", "aspx"]
+}
