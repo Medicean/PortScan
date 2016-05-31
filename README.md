@@ -24,7 +24,7 @@
 
 2. 拷贝源代码至插件目录
 
-将插件目录拷贝至 `antSword/antData/plugins/` 目录下即安装成功
+    将插件目录拷贝至 `antSword/antData/plugins/` 目录下即安装成功
 
 ## 相关链接
 

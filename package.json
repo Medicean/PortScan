@@ -9,7 +9,7 @@
     "name": "Medici.Yan",
     "email": "Medici.Yan@gmail.com"
   },
-  "category": "信息收集",
+  "category": "信息获取",
   "category_en": "information",
   "multiple": true,
   "scripts": ["php", "asp", "aspx"]
