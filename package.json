@@ -1,8 +1,9 @@
 {
   "name": "端口扫描",
   "name_en": "PortScan",
-  "main": "main.js",
+  "main": "index.js",
   "icon": "eye",
+  "version": "0.1",
   "description": "通过 webshell 扫描内网主机已开放端口",
   "description_en": "Scan ports with webshell",
   "author": {
