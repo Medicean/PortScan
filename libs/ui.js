@@ -147,7 +147,11 @@ class UI {
               toastr.success(LANG['success'], antSword['language']['toastr']['success']);
               // 取消锁定LOADING
               this.win.win.progressOff();
-            });
+            })
+          .catch((err) => {
+            toastr.error(LANG['error'], antSword['language']['toastr']['error']);
+            this.win.win.progressOff();
+          });
           break;
         default:
 

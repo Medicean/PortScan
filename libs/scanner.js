@@ -10,7 +10,8 @@ class Scanner {
       // 请求数据
       core.request({
         _: this.template[opt['type']](argv.ip, argv.ports)
-      }).then(res);
+      }).then(res)
+      .catch((err)=>{return rej(err);});
     })
   }
 
