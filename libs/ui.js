@@ -131,6 +131,7 @@ class UI {
               let griddata = [];
               ret.text.split('\n').map((item, i) => {
                 if (!item) { return };
+                item = antSword.noxss(item);
                 griddata.push({
                   id: i,
                   style: item.indexOf('Open') > -1 ? "background-color:#ADF1B9": "",
@@ -149,6 +150,7 @@ class UI {
               this.win.win.progressOff();
             })
           .catch((err) => {
+            console.log(err);
             toastr.error(LANG['error'], antSword['language']['toastr']['error']);
             this.win.win.progressOff();
           });
