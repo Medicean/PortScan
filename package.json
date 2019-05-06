@@ -3,7 +3,7 @@
   "name_en": "PortScan",
   "main": "index.js",
   "icon": "eye",
-  "version": "0.1",
+  "version": "0.2",
   "description": "通过 webshell 扫描内网主机已开放端口",
   "description_en": "Scan ports with webshell",
   "author": {
