@@ -8,9 +8,18 @@ class Scanner {
       // 初始化核心模块
       let core = new antSword['core'][opt['type']](opt);
       // 请求数据
-      core.request({
-        _: this.template[opt['type']](argv.ip, argv.ports)
-      }).then(res)
+      let code = {};
+      if (opt['type'] === 'jsp') {
+        code = core.other.portscan({
+          ip: argv.ip,
+          ports: argv.ports
+        })
+      } else {
+        code = {
+          _: this.template[opt['type']](argv.ip, argv.ports)
+        }
+      }
+      core.request(code).then(res)
       .catch((err)=>{return rej(err);});
     })
   }
