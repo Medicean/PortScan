@@ -30,6 +30,19 @@ class Scanner {
    */
   get template() {
     return {
+      php4: (ip, ports) => `
+      function portscan($scanip, $scanport="80"){
+        foreach(explode(",", $scanport) as $port){
+          $fp = @fsockopen($scanip, $port, $errno, $errstr, 1);
+          if(!$fp){
+            echo $scanip."\t".$port."\tClosed\n";
+          }else{
+            echo $scanip."\t".$port."\tOpen\n";
+            @fclose($fp);
+          }
+        }
+      };
+      portscan("${ip}","${ports}");`,
       php: (ip, ports) => `
         function portscan($scanip, $scanport="80"){
           foreach(explode(",", $scanport) as $port){
