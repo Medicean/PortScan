@@ -30,6 +30,48 @@ class Scanner {
    */
   get template() {
     return {
+      jspjs: (ip, ports) => `importPackage(Packages.java.net);
+        function createSocket(ip, port) {
+          var socket = null;
+          try {
+            socket = new Socket();
+            socket.setReuseAddress(true);
+            socket.setKeepAlive(false);
+            socket.setTcpNoDelay(true);
+            socket.setSoLinger(true, 0);
+            socket.connect(new InetSocketAddress(ip, port), 30);
+            socket.setSoTimeout(1);
+            return socket;
+          } catch (ex) {
+            if(socket!=null){
+              socket.close();
+            }
+            ex.printStackTrace();
+            throw ex;
+          }
+        };
+        function Scan(ip, ports) {
+          var sb = new StringBuffer();
+          var portlist = ports.split(",");
+          var socket = null;
+          for (var i=0; i<portlist.length; i++) {
+            try {
+              socket = createSocket(ip, Integer.parseInt(portlist[i]));
+              sb.append(ip + "\\t" + portlist[i] + "\\tOpen\\n");
+            } catch (e) {
+              sb.append(ip + "\\t" + portlist[i] + "\\tClosed\\n");
+            } finally {
+              try {
+                if (socket != null) {
+                  socket.close();
+                }
+              } catch (ex) {}
+            }
+          };
+          return sb.toString();
+        };
+        output.append(Scan("${ip}","${ports}"));
+      `,
       php4: (ip, ports) => `
       function portscan($scanip, $scanport="80"){
         foreach(explode(",", $scanport) as $port){

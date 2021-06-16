@@ -78,7 +78,7 @@ class UI {
           }, {
             type: 'input', label: LANG['cella']['form']['ports'], name: 'scanports',
             required: true,
-            value: '21,22,23,25,80,110,135,139,445,1433,3306,3389,8080'
+            value: '21,22,23,25,80,445,1433,3306,3389,5432,6379,7001,8080,8009,27017'
         }]
     }];
     let form = cell.attachForm(formdata, true);
